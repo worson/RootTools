@@ -22,9 +22,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Logger.setListener { level, tag, msg -> appendLog("$tag:$msg\n") }
+        Logger.setListener { level, tag, msg -> appendLog("$msg\n") }
         tvResult = findViewById(R.id.tvResult)
-
+        tvResult?.text = ""
+        onShowProxy()
     }
 
     private fun test() {
@@ -85,7 +86,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun copyCertificate(sourcePaths: List<String>) {
         Logger.log("开始拷贝证书")
-
         var cmds = mutableListOf<String>(
             "su", "mount -o rw,remount /",
             "mount -o rw,remount /system",
@@ -127,6 +127,24 @@ class MainActivity : AppCompatActivity() {
 
     fun onClearLog(view: View) {
         tvResult?.text = ""
+    }
+
+    fun onShowProxy() {
+        ShellUtil.cmd("settings get global http_proxy").submit { result ->
+            result.isSuccess.let {
+                Logger.log("当前的代理信息为:" + result.out)
+            }
+        }
+    }
+
+    fun onClearProxy(view: View) {
+        Logger.log("准备清除代理")
+        ShellUtil.cmd("settings put global http_proxy :0").submit { result ->
+            updateUI(
+                result
+            )
+            onShowProxy()
+        }
     }
 
 
