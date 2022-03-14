@@ -40,8 +40,7 @@
         </ScrollView>
     </LinearLayout>
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -49,52 +48,80 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/centerLine">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClearLog"
-            android:padding="10dp"
-            android:text="clear log"
-            android:textAllCaps="false" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/centerLine">
 
-        <Button
-            android:id="@+id/cpCertificate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onCopyCertificate"
-            android:padding="10dp"
-            android:text="copy certificate to system"
-            android:textAllCaps="false" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClearLog"
+                android:padding="10dp"
+                android:text="clear log"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/deleteCertificate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onDeleteCertificate"
-            android:padding="10dp"
-            android:text="delete Certificate from system"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/cpCertificate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCopyCertificate"
+                android:padding="10dp"
+                android:text="copy certificate to system"
+                android:textAllCaps="false" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClearProxy"
-            android:padding="10dp"
-            android:text="clear proxy"
-            android:textAllCaps="false"
-            tools:ignore="OnClick" />
+            <Button
+                android:id="@+id/deleteCertificate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onDeleteCertificate"
+                android:padding="10dp"
+                android:text="delete Certificate from system"
+                android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/btReboot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRebootDevice"
-            android:padding="10dp"
-            android:text="reboot"
-            android:textAllCaps="false"
-            tools:ignore="OnClick" />
+            <Button
+                android:id="@+id/btReboot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRebootDevice"
+                android:padding="10dp"
+                android:text="reboot"
+                android:textAllCaps="false"
+                tools:ignore="OnClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClearProxy"
+                android:padding="10dp"
+                android:text="clear proxy"
+                android:textAllCaps="false"
+                tools:ignore="OnClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onProxyAir"
+                android:padding="10dp"
+                android:text="proxy air"
+                android:textAllCaps="false"
+                tools:ignore="OnClick" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onProxyPro16"
+                android:padding="10dp"
+                android:text="proxy pro16"
+                android:textAllCaps="false"
+                tools:ignore="OnClick" />
 
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

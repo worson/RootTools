@@ -147,5 +147,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun setProxy(ip: String) {
+        ShellUtil.cmd("settings put global http_proxy ${ip}:8888").submit { result ->
+            updateUI(
+                result
+            )
+            onShowProxy()
+        }
+    }
+
+    fun onProxyAir(view: View) {
+        setProxy("192.168.31.229")
+    }
+
+    fun onProxyPro16(view: View) {
+        setProxy("192.168.31.214")
+    }
+
 
 }
